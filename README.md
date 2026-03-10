@@ -33,7 +33,7 @@ graph LR
 
 ## 📚 API Documentation
 
-**Detailed Javadoc is available online:** 👉 **[https://trevormaggs.github.io/Command-Line-Parser/](https://trevormaggs.github.io/Command-Line-Parser/)**
+**Detailed Javadoc is available online:** 👉 **[ https://trevormaggs.github.io/CLI-Command-Parsing/]( https://trevormaggs.github.io/CLI-Command-Parsing/)**
 
 ---
 
@@ -152,7 +152,7 @@ Requirements:
 * **Dependencies:** None.
 * Import directly into your IDE to start using
 
-Review the **[Javadoc documentation](https://trevormaggs.github.io/Command-Line-Parser/)** for detailed API usage.
+Review the **[Javadoc documentation]( https://trevormaggs.github.io/CLI-Command-Parsing/)** for detailed API usage.
 
 ---
 
@@ -163,4 +163,5 @@ This library is developed and maintained by **Trevor Maggs**.
 Anyone wishing to use this resource is welcome to download or clone the repository via Git. If you have any comments, suggestions, or find any bugs, please direct your questions to me via email: **[trevmaggs@tpg.com.au](mailto:trevmaggs@tpg.com.au)**.
 
 ---
+
 
