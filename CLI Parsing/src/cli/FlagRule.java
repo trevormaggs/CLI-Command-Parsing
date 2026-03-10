@@ -259,6 +259,10 @@ public class FlagRule
     @Override
     public String toString()
     {
-        return String.format("Flag: %-16sType: %-16sStatus: %-16sRule: %-16sValue: %s%n", flagName, (longFlag ? "Long" : "Short"), (handled ? "PARSED" : "PENDING"), flagType, String.join(", ", values));
+        return String.format("Flag: %-16sType: %-16sStatus: %-16sRule: %-16sValue: %s%n",
+                (longFlag ? "--" : "-") + flagName,
+                (longFlag ? "Long" : "Short"),
+                (handled ? "PARSED" : "PENDING"),
+                flagType, String.join(", ", values));
     }
 }
