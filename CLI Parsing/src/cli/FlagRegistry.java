@@ -34,30 +34,19 @@ public final class FlagRegistry implements Iterable<FlagRule>
     }
 
     /**
-     * Initialises a registry with a starting rule.
-     *
-     * @param rule
-     *        the first rule to register
-     */
-    public FlagRegistry(FlagRule rule)
-    {
-        this();
-        addRule(rule);
-    }
-
-    /**
      * Registers a new flag rule.
      *
      * @param rule
      *        the rule to add
-     * @throws IllegalArgumentException
+     * 
+     * @throws ParseException
      *         if the flag name is already defined in this registry
      */
-    public void addRule(FlagRule rule)
+    public void addRule(FlagRule rule) throws ParseException
     {
         if (existsFlag(rule.getFlagName()))
         {
-            throw new IllegalArgumentException("Flag [" + rule.getFlagName() + "] already defined");
+            throw new ParseException("Flag [" + rule.getFlagName() + "] is already defined", 0);
         }
 
         flagMap.put(rule.getFlagName(), rule);

@@ -29,21 +29,21 @@ public class FlagRule
     private boolean separator;
 
     /**
-     * Constructs a new flag rule.
+     * Constructs a new flag rule based on POSIX or GNU conventions.
      *
      * @param name
-     *        the raw flag name, for example: "-v" or "--verbose". Leading dashes are stripped
+     *        the flag name, including leading dashes. For example: "-v" or "--verbose"
      * @param type
-     *        the policy for handling arguments and separators
+     *        the policy for argument and separator handling
      *
      * @throws ParseException
-     *         if the flag format is invalid or a short flag is multi-character
+     *         if the flag format is invalid or if a short flag exceeds one character
      */
     public FlagRule(String name, FlagType type) throws ParseException
     {
-        if (name == null || !name.matches("\\-{1,2}[^\\-].*$"))
+        if (name == null || !name.matches("^-{1,2}[a-zA-Z0-9].*$"))
         {
-            throw new ParseException("Flag [" + name + "] is invalid", 0);
+            throw new ParseException("Invalid flag format [" + name + "]", 0);
         }
 
         this.flagName = CommandFlagParser.stripLeadingDashes(name);
@@ -53,7 +53,7 @@ public class FlagRule
 
         if (!longFlag && name.length() > 2)
         {
-            throw new ParseException("Short flag rules must be a single character, for example: '-v'. Found [" + name + "]", 0);
+            throw new ParseException("Short flag rules must consist of a single character (e.g., '-v'). Found [" + name + "]", 0);
         }
     }
 

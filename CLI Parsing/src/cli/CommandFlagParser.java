@@ -302,7 +302,7 @@ public class CommandFlagParser
      * Registers a new flag rule.
      * 
      * @param name
-     *        the flag identifier. Valid dashes (e.g., "-v" or "--portal") are permitted
+     *        the flag identifier. Valid dashes (e.g., "-v" or "--portal") must be provided
      * @param type
      *        the {@link FlagType} defining how arguments and separators are handled
      * 
@@ -311,11 +311,6 @@ public class CommandFlagParser
      */
     public void addDefinition(String name, FlagType type) throws ParseException
     {
-        if (registry.existsFlag(name))
-        {
-            throw new ParseException("Flag rule [" + name + "] is already registered", 0);
-        }
-
         registry.addRule(new FlagRule(name, type));
     }
 
