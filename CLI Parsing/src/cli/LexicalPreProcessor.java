@@ -33,7 +33,7 @@ import java.util.List;
  * @version 1.0
  * @since 2 March 2026
  */
-public class LexicalCommandProcessor
+public class LexicalPreProcessor
 {
     private final List<String> tokens;
 
@@ -44,7 +44,7 @@ public class LexicalCommandProcessor
      * @param args
      *        the command line arguments
      */
-    public LexicalCommandProcessor(String[] args)
+    public LexicalPreProcessor(String[] args)
     {
         tokens = (args != null && args.length > 0 ? normalise(args) : Collections.emptyList());
     }
@@ -144,7 +144,7 @@ public class LexicalCommandProcessor
                     }
                 }
             }
-
+            
             if (!joinNext)
             {
                 String token = sweepCommas(sb.toString());
@@ -179,9 +179,9 @@ public class LexicalCommandProcessor
 
         if (input != null)
         {
-            swept = input.replaceAll("[,\\s]+", ",");
+            swept = input.replaceAll(",+", ",");
             swept = swept.replaceAll("=[\\s,]+", "=");
-            swept = swept.replaceAll("^,|,$", "");
+            swept = swept.replaceAll("^,+|,+$", "");
         }
 
         return swept;

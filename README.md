@@ -1,6 +1,6 @@
 # CLI Command Parsing
 
-A lightweight high-performance Java command-line parser employing a strategy-based design pattern to transform unpredictable, fragmented shell input into a validated, structured application state. The core strength of the parser logic lies in a smart **Lexical Pre-processing** layer that ensures raw data is accurately tokenised, amalgamated, and validated prior to execution.
+A lightweight high-performance Java command-line parser employing a strategy-based design pattern to transform unpredictable, fragmented shell input into a validated, structured application state. The core strength of the parser logic lies in a smart **Lexical pre-processing** layer that ensures raw data is accurately tokenised, amalgamated, and validated prior to execution.
 
 ## 🚀 Key Features
 
@@ -16,7 +16,7 @@ The engine processes input through a three-phase pipeline: **Definition**, **Tok
 
 ```mermaid
 graph LR
-    A[Raw String Array] --> B[LexicalCommandProcessor]
+    A[Raw String Array] --> B[LexicalPreProcessor]
     subgraph "Lexical Layer (The Stitcher)"
     B --> B1[Shield Negative Numbers]
     B1 --> B2[Amalgamate Fragments]
@@ -129,7 +129,7 @@ String target = cli.getFreeArgumentByIndex(1); // Returns "output.txt"
 
 ## 🧪 Expected Output (Test Cases)
 
-Below are examples of how the `LexicalCommandProcessor` transforms varied inputs into cohesive, logical tokens.
+Below are examples of how the `LexicalPreProcessor` transforms varied inputs into cohesive, logical tokens.
 
 | Raw Shell Input | Flattened Token Result | Logic Applied |
 | --- | --- | --- |

@@ -488,7 +488,7 @@ public class CommandFlagParser
      */
     public void parse() throws ParseException
     {
-        LexicalCommandProcessor tokenizer = new LexicalCommandProcessor(rawArgs);
+        LexicalPreProcessor tokenizer = new LexicalPreProcessor(rawArgs);
         PeekingIterator<String> it = new PeekingIterator<>(tokenizer.getTokens());
 
         while (it.hasNext())
