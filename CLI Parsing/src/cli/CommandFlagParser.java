@@ -522,8 +522,7 @@ public class CommandFlagParser
             System.out.println("--- Tokenization ---");
             System.out.println(tokenizer);
             System.out.printf("Flattened: %s\n\n", tokenizer.flattenArguments());
-
-            System.out.println("Execution completed. Operands captured: " + operands.size());
+            System.out.printf("Execution completed. Operands captured: %d%n" + operands.size());
         }
 
         validateOperands();
