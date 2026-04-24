@@ -377,6 +377,20 @@ public class CommandFlagParser
     }
 
     /**
+     * Returns the size of the value set which the specified flag is associated with.
+     * 
+     * @param name
+     *        the flag identifier with or without leading dashes
+     * @return the size of the values held by the processed flag, otherwise zero if none
+     */
+    public int getValueLength(String name)
+    {
+        FlagRule rule = registry.getRule(stripLeadingDashes(name));
+
+        return (rule == null ? 0 : rule.getSize());
+    }
+
+    /**
      * Retrieves the value of the specified flag if present.
      * 
      * <p>
@@ -418,17 +432,22 @@ public class CommandFlagParser
     }
 
     /**
-     * Returns the size of the value set which the specified flag is associated with.
+     * Returns the processed values for a flag as a joined array.
      * 
      * @param name
-     *        the flag identifier with or without leading dashes
-     * @return the size of the values held by the processed flag, otherwise zero if none
+     *        the flag name
+     * @return String array of all values associated with the flag
      */
-    public int getValueLength(String name)
+    public String[] getValuesByFlag(String name)
     {
         FlagRule rule = registry.getRule(stripLeadingDashes(name));
 
-        return (rule == null ? 0 : rule.getSize());
+        if (rule == null || !rule.hasValueAssigned())
+        {
+            return new String[0];
+        }
+
+        return rule.getAllValues().toArray(new String[0]);
     }
 
     /**
@@ -559,7 +578,7 @@ public class CommandFlagParser
 
         else
         {
-            // Split and trim multi-values (i.e., "win10, rhel")
+            // Split and trim multi-values, such as "win10, rhel"
             String[] parts = value.split(",");
 
             for (String part : parts)

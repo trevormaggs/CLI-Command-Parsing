@@ -252,7 +252,7 @@ public class FlagRule
 
     /**
      * Returns a string representation of this flag rule, detailing its name, type, current parsing
-     * status, and any associated values.
+     * status and any associated values.
      *
      * @return a formatted string containing the flag's definition and parsed state
      */
