@@ -1,5 +1,6 @@
 package cli;
-import common.PeekingIterator;
+
+import util.PeekingIterator;
 
 /**
  * Provides a concrete strategy for processing long-form flags based on GNU conventions.

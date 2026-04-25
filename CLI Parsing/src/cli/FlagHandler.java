@@ -1,5 +1,5 @@
 package cli;
-import common.PeekingIterator;
+import util.PeekingIterator;
 
 /**
  * Strategy interface for processing different types of command-line flags.

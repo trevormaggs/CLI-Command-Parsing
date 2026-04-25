@@ -1,5 +1,6 @@
 package cli;
-import common.PeekingIterator;
+
+import util.PeekingIterator;
 
 /**
  * Provides a concrete strategy for processing short-form flags based on POSIX conventions.
@@ -69,7 +70,7 @@ public class ShortFlagHandler implements FlagHandler
                     if (suffix.startsWith("="))
                     {
                         hasSeparator = true;
-                        
+
                         // Note: substring returns an empty string if the index equals the string
                         // length. Be aware of this subtle quirk.
                         value = suffix.substring(1);
